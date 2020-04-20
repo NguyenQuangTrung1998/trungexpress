@@ -1,0 +1,20 @@
+extends ../layouts/layout
+block content
+	h1 home 1
+	.container
+		a(href="/users/create") new
+		form(action="/users/search",method="get")
+			input(type="text",name='q')
+			button search
+	.container
+		table(style="width:100%;")
+			tr(style="border-top:solid 1px black;")
+				th name
+				th phone 
+				th action
+			each user in users
+				tr(style="border-top:solid 1px black")
+					td= user.name
+					td= user.phone
+					td
+						a.btn.btn-light(href="/users/" +user.id) view

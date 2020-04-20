@@ -1,0 +1,14 @@
+extends ../layouts/layout
+block content
+	if errors
+		each error in errors
+			.alert.alert-danger= error
+
+	h1 sign up
+	.container
+		form(action="/users/create",method="post" style="display:flex; flex-direction:column")
+			label name
+			input(type="text" name="name" value=values?values.name : "")
+			label phone 
+			input(type="text" name="phone")
+			button(style = "width:10%; margin-top:20px;" value=values?values.phone : "") create
